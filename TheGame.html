@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+        <title>Starview Valley</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="gamecss.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+
+
+
+    </head>
+    <body>
+        <div id="grandpaLetter">
+            My dear grandchild,<br><br>
+
+            I hope my letter finds you well. I am now in the last of my days, and by the time you read this I'll be gone.<br><br>
+
+            I do not have much by way of material possessions, but I would like to leave you that which I hold dearest - my farm. <br><br>
+
+            I will be honest with you: the situation is dire. You have <b>30 days</b> - beginning today - to come up with <b>2,500 gold</b> to pay the bank for the loan I took to cover my hospital bills. Otherwise, the farm will be <b>repossessed</b>. <br><br>
+
+            I am sorry for placing this burden on you, my dear. The days ahead will be tough, but I am certain that greater rewards are in store for you if you're able to soldier through. <br><br>
+
+            I have no money to help you get started, but you can forage in the <b>Cindersap Forest</b> for items that you can sell in the <b>town plaza</b>. After which, head to my friend <b>Pierre's shop</b> and buy seeds for planting. <br><br>
+
+            The <b>cave</b> in the <b>mountains</b> can be mined for valuable gems that you can likewise sell. But be forewarned: these are very few and far between, and there are monsters at every turn. And although more gold can be had in the lower levels of the mine, remember that the deeper you go, the more dangerous it gets. Seek the assistance of the <b>adventurer's guild</b> there before you enter the cave. <br><br>
+
+            The life of a farmer is one of patience and perseverance. Tend to your plants religiously and take time to get to know them. I promise your hard work will pay off. <br><br>
+
+            Starview Valley was my home for most of my life, and I hope you'll come to call it yours, as well. I am at peace knowing that the farm is in your hands. <br><br>
+
+            Love,<br><br>
+
+            Grandpa
+
+        </div>
+        <!-- TOP -->        
+        <div id="top">
+            <div id="stats">
+                <div class="row g-0">
+                    <div id="day" class="col-sm-6 g-0">[days]</div>
+                    <div id="money" class="col-sm-6 g-0">[money]</div>
+                </div>
+                <div class="row g-0">
+                    <div class="row g-0">
+                        <div id="energy" class="col-sm-4 g-0">[energy]</div>
+                        <div id="energyBar" class="col-sm-8 bars g-0">
+                            <div id="energyFill"></div>
+                        </div>
+                    </div>
+                    <div class="row g-0">
+                        <div id="health" class="col-sm-4 g-0">[health]</div>
+                        <div id="healthBar" class="col-sm-8 bars g-0">
+                            <div id="healthFill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="letterClose" onclick="closeBg()"><b>X</b></button>
+        </div>
+        
+        <!-- MID -->
+        <div id="mid">
+        
+			<!-- MID LEFT -->
+            <div id="midLeft">
+                <div id="farm">
+					<h1>Your Farm</h1>
+					<table id="plots">
+						<tr>
+							<td><div class="plot" id="plot0" onclick="plotClick('0');">
+							1
+							</div></td>
+							<td><div class="plot" id="plot1" onclick="plotClick('1');">
+							2
+							</div></td>
+							<td><div class="plot" id="plot2" onclick="plotClick('2');">
+							3
+							</div></td>
+						</tr>
+						<tr>
+							<td><div class="plot" id="plot3" onclick="plotClick('3');">
+							4
+							</div></td>
+							<td><div class="plot" id="plot4" onclick="plotClick('4');">
+							5
+							</div></td>
+							<td><div class="plot" id="plot5" onclick="plotClick('5');">
+							6
+							</div></td>
+						</tr>
+						<tr>
+							<td><div class="plot" id="plot6" onclick="plotClick('6');">
+							7
+							</div></td>
+							<td><div class="plot" id="plot7" onclick="plotClick('7');">
+							8
+							</div></td>
+							<td><div class="plot" id="plot8" onclick="plotClick('8');">
+							9
+							</div></td>
+						</tr>						
+					</table>
+					<div id="farmMsg"></div>
+                
+                </div>
+                <div id="shop">
+					<h1>Pierre's Shop</h1>
+                    <div id="totalDeduct" class="topTransact"> </div>
+                    <div id="shopContent"></div>
+					<div id="shopMsg"></div>
+                </div>                
+				<div id="sell">
+					<h1>Common Market</h1>
+					<div id="totalProfit" class="topTransact"> </div>
+					<div id="sellList"></div>
+					<div id="sellMsg"></div>
+				</div>
+                <div id="dungeon">
+                    <div class="row" id="battle">
+                        <div class="col-sm-6">
+                            <div id="battleInfo">
+
+                                <!--ENEMY INFO-->
+                                <p id="enemyName">[Enemy]</p>
+                                <p id="enemyLvl">Lvl 1</p>
+                                <div class="healthBG">
+                                    <p id="health2" class="health">&nbsp;</p>
+                                </div>
+
+                                <!--TIMER-->
+                                <div id="time" class="timeBG">
+                                    <p id="time2" class="time">&nbsp;</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="guild">
+                    <div class="row">
+                        <h1 style="text-align: center">Upgrades:</h1>
+                    </div>
+
+                        <!--UPGRADES-->
+                    <div id="upgrades" class="row g-0">
+                        <div style="height: 40%" class="row g-0">
+
+                            <div class="col-sm-4 upgradePanel g-0">
+                                <p>Upgrade Weapon</p>
+                                <p>Base Atk:</p>
+                                <p id="bAtkIncrease">20 => 40</p>
+                                <button id="weaponBuy" class="btn btn-success" onclick="weaponBuy()">Cost: 5g</button>
+                            </div>
+
+                            <div class="col-sm-4 upgradePanel g-0">
+                                <p>Upgrade Skin</p>
+                                <p>Base HP:</p>
+                                <p id="bHPIncrease">100 => 200</p>
+                                <button id="HPBuy" class="btn btn-success" onclick="HPBuy()">Cost: 100g</button>
+                            </div>
+
+                            <div class="col-sm-4 upgradePanel g-0">
+                                <p>Upgrade Shield</p>
+                                <p>Dmg Reduction of Blocks:</p>
+                                <p id="shieldIncrease">30% => 40%</p>
+                                <button id="shieldBuy" class="btn btn-success" onclick="shieldBuy()">Cost: 10g</button>
+                            </div>
+                        </div>
+
+                        <div style="height: 40%" class="row g-0">
+
+                            <div class="col-sm-4  upgradePanel g-0">
+                                <p>Upgrade Steroids</p>
+                                <p>Atk Increase (Up to 200%)</p>
+                                <p id="atkIncrease">0% => 2%</p>
+                                <button id="weaponBuy2" class="btn btn-success" onclick="weaponBuy2()">Cost: 12g</button>
+                            </div>
+
+                            <div class="col-sm-4 upgradePanel g-0">
+                                <p>Upgrade Armor</p>
+                                <p>HP Increase (Up to 200%)</p>
+                                <p id="HPIncrease">0% => 2%</p>
+                                <button id="HPBuy2" class="btn btn-success" onclick="HPBuy2()">Cost: 20g</button>
+                            </div>
+                        </div>
+                    </div>                
+                </div>
+                <div id="forageMenu">
+                    <div id="woodsPrev" onclick="forage('woods')"><div id="woodsText">Woods</div></div>
+                    <div id="riverPrev" onclick="forage('river')"><div id="riverText">River</div></div>
+                    <div id="fieldsPrev" onclick="forage('fields')"><div id="fieldsText">Fields</div></div>
+                </div>
+                    <div id="woods">
+                            <div class="row g-0">
+                                <div class="col-sm-2 g-0 fbox" id="fwBox0" onclick="forageClick('0', 'fw')" ></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox1" onclick="forageClick('1', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox2" onclick="forageClick('2', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox3" onclick="forageClick('3', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox4" onclick="forageClick('4', 'fw')"></div>
+                            </div>
+                            <div class="row g-0">
+                                <div class="col-sm-2 g-0 fbox" id="fwBox5" onclick="forageClick('5', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox6" onclick="forageClick('6', 'fw')"></div> 
+                                <div class="col-sm-2 g-0 fbox" id="fwBox7" onclick="forageClick('7', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox8" onclick="forageClick('8', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox9" onclick="forageClick('9', 'fw')"></div>
+                            </div>
+                            <div class="row g-0">
+                                <div class="col-sm-2 g-0 fbox" id="fwBox10" onclick="forageClick('10', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox11" onclick="forageClick('11', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox12" onclick="forageClick('12', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox13" onclick="forageClick('13', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox14" onclick="forageClick('14', 'fw')"></div>
+                            </div>
+                            <div class="row g-0">
+                                <div class="col-sm-2 g-0 fbox" id="fwBox15" onclick="forageClick('15', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox16" onclick="forageClick('16', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox17" onclick="forageClick('17', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox18" onclick="forageClick('18', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox19" onclick="forageClick('19', 'fw')"></div>
+                            </div>
+                            <div class="row g-0">
+                                <div class="col-sm-2 g-0 fbox" id="fwBox20" onclick="forageClick('20', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox21" onclick="forageClick('21', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox22" onclick="forageClick('22', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox23" onclick="forageClick('23', 'fw')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="fwBox24" onclick="forageClick('24', 'fw')"></div>
+                            </div>
+                        <button onclick="refresh('woods')">Search for more...</button>
+                        <button onclick="forestLocation()">Back</button>
+</div>
+                    <div id="river">
+                            <div class="row g-0">
+                                <div class="col-sm-2 g-0 fbox" id="frBox0" onclick="forageClick('0', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox1" onclick="forageClick('1', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox2" onclick="forageClick('2', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox3" onclick="forageClick('3', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox4" onclick="forageClick('4', 'fr')"></div>
+                            </div>
+                            <div class="row g-0">
+                                <div class="col-sm-2 g-0 fbox" id="frBox5" onclick="forageClick('5', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox6" onclick="forageClick('6', 'fr')"></div> 
+                                <div class="col-sm-2 g-0 fbox" id="frBox7" onclick="forageClick('7', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox8" onclick="forageClick('8', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox9" onclick="forageClick('9', 'fr')"></div>
+                            </div>
+                            <div class="row g-0">
+                                <div class="col-sm-2 g-0 fbox" id="frBox10" onclick="forageClick('10', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox11" onclick="forageClick('11', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox12" onclick="forageClick('12', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox13" onclick="forageClick('13', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox14" onclick="forageClick('14', 'fr')"></div>
+                            </div>
+                            <div class="row g-0">
+                                <div class="col-sm-2 g-0 fbox" id="frBox15" onclick="forageClick('15', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox16" onclick="forageClick('16', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox17" onclick="forageClick('17', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox18" onclick="forageClick('18', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox19" onclick="forageClick('19', 'fr')"></div>
+                            </div>
+                            <div class="row g-0">
+                                <div class="col-sm-2 g-0 fbox" id="frBox20" onclick="forageClick('20', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox21" onclick="forageClick('21', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox22" onclick="forageClick('22', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox23" onclick="forageClick('23', 'fr')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="frBox24" onclick="forageClick('24', 'fr')"></div>
+                            </div>
+                        <button onclick="refresh('river')">Search for more...</button>
+                        <button onclick="forestLocation()">Back</button>
+</div>
+                    <div id="fields">
+                            <div class="row g-0">
+                                <div class="col-sm-2 g-0 fbox" id="ffBox0" onclick="forageClick('0', 'ff')" ></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox1" onclick="forageClick('1', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox2" onclick="forageClick('2', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox3" onclick="forageClick('3', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox4" onclick="forageClick('4', 'ff')"></div>
+                            </div>
+                            <div class="row g-0">
+                                <div class="col-sm-2 g-0 fbox" id="ffBox5" onclick="forageClick('5', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox6" onclick="forageClick('6', 'ff')"></div> 
+                                <div class="col-sm-2 g-0 fbox" id="ffBox7" onclick="forageClick('7', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox8" onclick="forageClick('8', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox9" onclick="forageClick('9', 'ff')"></div>
+                            </div>
+                            <div class="row g-0">
+                                <div class="col-sm-2 g-0 fbox" id="ffBox10" onclick="forageClick('10', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox11" onclick="forageClick('11', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox12" onclick="forageClick('12', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox13" onclick="forageClick('13', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox14" onclick="forageClick('14', 'ff')"></div>
+                            </div>
+                            <div class="row g-0">
+                                <div class="col-sm-2 g-0 fbox" id="ffBox15" onclick="forageClick('15', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox16" onclick="forageClick('16', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox17" onclick="forageClick('17', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox18" onclick="forageClick('18', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox19" onclick="forageClick('19', 'ff')"></div>
+                            </div>
+                            <div class="row g-0">
+                                <div class="col-sm-2 g-0 fbox" id="ffBox20" onclick="forageClick('20', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox21" onclick="forageClick('21', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox22" onclick="forageClick('22', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox23" onclick="forageClick('23', 'ff')"></div>
+                                <div class="col-sm-2 g-0 fbox" id="ffBox24" onclick="forageClick('24', 'ff')"></div>
+                            </div>
+                        <button onclick="refresh('fields')">Search for more...</button>
+                        <button onclick="forestLocation()">Back</button>
+</div>
+                <div id="blankLeft"></div>
+            </div>
+			
+			<!-- MID RIGHT -->
+            <div id="midRight">
+				<!-- MID TOP -->
+                <div id="midTop">
+                    <div id="farmpic"></div>
+                    <div id="homepic"></div>
+                    <div id="shoppic"></div>
+                    <div id="townpic"></div>
+					<div id="sellpic"></div>
+					<div id="roosterpic"></div>
+                    <div id="mountainpic"></div>
+                    <div id="dungeonpic"></div>
+                    <div id="forestpic"></div>
+                    <div id="clinicpic"></div>
+                    <div id="guildpic"></div>
+                </div>
+				<!-- MID BOT -->				
+                <div id="midBot">
+					<div id="blankBot"></div>
+                    <div id="passOut">You passed out due to exhaustion, and spent 5 days in the hospital. You still feel under the weather.</div>
+                    <div id="inventory">
+						<h1>Your Inventory</h1>
+						<div id="inventoryList"></div>
+					</div>
+                    <div id="tools">
+						<h1>Your Tools</h1>
+						<div id="handTool" onclick="changeTool('hand')">Hand (for picking)</div>
+						<div id="hoeTool" onclick="changeTool('hoe')">Hoe</div>
+						<div id="wateringCanTool" onclick="changeTool('wateringCan')">Watering Can</div>
+					</div>
+					<div id="seeds">
+						<h1>Your Seeds</h1>
+						<div id="seedsList"></div>
+					</div>
+                    <div id="dungeonAct">
+                        <!--ACTIONS-->
+                        <div id="contextActions">
+                            <button id="kill" class="btn attack disabled" onclick="kill()">Attack</button>
+                            <button id="block" class="btn block disabled" onclick="block()">Block</button>
+                            <button id="combat" class="btn generalbtn" onclick="toggleCombat();openLeft('');openBot('blankBot');openTop('mountainpic');showMenu();">Leave Dungeon</button>
+                                <p id="WLIncrease">Level 1</p>
+                                <button id="WLBuy" class="btn generalbtn" onclick="WLBuy()">Dig Hole to Next Level</button>
+                            <p id="atk">Base Attack: 20</p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!--BOT-->        
+        <div id="bot">
+        
+            <div id="menuBar" class="row g-0">
+                        <div class="col-sm-6 g-0">                            
+                            <!--Travel places-->
+                            <h1>Locations</h1>
+                            <div>
+                            <div class="menuButton" onclick="homeLocation()">Home</div>
+                            <div class="menuButton" onclick="townLocation()">Pelican Town</div>
+                            <div class="menuButton" onclick="mountainLocation()">Mountain</div>
+                            <div class="menuButton" onclick="forestLocation()">Cindersap Forest</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 g-0">
+                            <h1>Actions</h1>                            
+                            <!--Do these at home-->
+                            <div id="homeActions">
+                                <div class="menuButton" onclick="endDay()">Go to Sleep (End Day)</div>
+                                <div class="menuButton" onclick="changeSeed('');openLeft('farm');openTop('homepic');openBot('tools');">Tools</div>
+								<div class="menuButton" onclick="updateSeeds();openLeft('farm');openBot('seeds');">Seeds</div>
+								<div class="menuButton" onclick="updateInventory();openBot('inventory');">Check Inventory</div>
+                            </div>
+                            
+                            <!--Do these at town-->
+                            <div id="townActions">
+                                <div class="menuButton" onclick="openLeft('shop');openTop('shoppic');enterPierreShop();">Enter Pierre's Shop</div>
+								<div class="menuButton" onclick="updateSell();openLeft('sell');openTop('sellpic');">Sell Goods</div>
+								<div class="menuButton" onclick="updateInventory();openBot('inventory');">Check Inventory</div>
+                            </div>
+                            
+                            <!--Do these at mountain-->
+                            <div id="mountainActions">
+                                <div class="menuButton" onclick="openLeft('dungeon');openBot('dungeonAct');toggleCombat();hideMenu();openTop('dungeonpic');">
+                                    Enter the Cave</div>
+                                <div class="menuButton" onclick="updateGuild();openLeft('guild');openTop('guildpic');">Enter Adventurer's Guild</div>
+								<div class="menuButton" onclick="updateInventory();openBot('inventory');">Check Inventory</div>
+                            </div>
+                            
+                            <!--Do these at forest-->
+                            <div id="forestActions">
+								<div class="menuButton" onclick="updateInventory();openBot('inventory');">Check Inventory</div>
+                            </div>
+                            
+                        </div>
+                    
+            
+            </div>
+            <div id="dungeonItems">
+                <h1 style="display: block; width: 100%;">Your Inventory</h1>
+                <br>
+                <div id="dungeonInventory"></div>
+            </div>
+			<div id="gameover">
+			</div>
+        
+        </div>		        
+        <script src="javascript.js"></script>
+    
+</body></html>

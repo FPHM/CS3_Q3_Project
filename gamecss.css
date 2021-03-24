@@ -1,0 +1,541 @@
+    /*General*/
+    *{
+
+        font-size: 13px;
+        color: #320000;
+        font-family: 'Pangolin', cursive;
+}
+img{
+    
+    max-height: 80%;
+    
+}
+img:hover{
+    
+    cursor: pointer;
+    
+}
+::selection{
+    
+    background-color: rgba(236, 166, 94, 0.5);
+    
+}
+.attack{
+    background-color: #b8553d !important;
+}
+.block{
+    background-color: #3d95b8 !important;
+}
+.generalbtn{
+    background-color: #488038 !important;
+}
+#letterClose{
+    
+    float: right;
+    margin-top: 1%;
+    background: darkred;
+    color: #FFFAE4;
+    background-repeat:space;
+    background-size: cover;
+    height: 35%;
+    width: 3%;
+    border: none;
+    box-shadow:  2px 2px 0px rgba(144, 55, 22,0.5),
+                 5px 5px 0px rgba(101, 40, 21, 0.5); 
+
+}
+#letterClose b{
+    
+    color: #FFFAE4;
+}
+#grandpaLetter{
+    
+    color: #903716;
+    display: block;
+    position: absolute;
+    z-index: 1000;
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+    background-image: url(./resources/letter.png);
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 2%;
+    background-repeat:round;
+    background-size: cover;
+    width: 60%;
+    
+}
+    html, body{
+
+        margin: 0px;
+        height: 100%;
+
+    }
+    body{
+    
+        background-image: url('https://i.pinimg.com/originals/b8/1a/a4/b81aa44ba47c8ebb93c4525a96904101.jpg');
+        background-repeat: space;
+        background-attachment: fixed;
+        background-size: cover;
+    
+    }
+    .menuButton{
+
+        transition: background-color 0.2s linear;
+        background-color: rgba(220,220,220,0);
+
+    }
+    .menuButton:hover{
+        background-color: rgba(220,220,220,0.25);
+        cursor: pointer;
+
+    }
+
+    .selectedTool{
+        background-color: cyan;
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #b46f2b;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #96612c;
+    }
+
+:hover{
+    
+    cursor: default;
+    
+}
+
+
+    /*TOP*/
+
+    #top{
+
+        margin: auto;
+        width: 70%;
+        height: 10%;
+
+    }
+    #stats{
+
+        text-align: left;
+        background-color: #dd7e20;
+        display: inline-block;
+        width: 49%;
+        height: 100%;
+        padding: 1%;
+        margin-left: 0.5%;
+}
+    #cheatImg{
+
+        display: inline-block;
+
+    }
+    .fbox{
+        
+        text-align: center;
+        height: 40px;
+        width: 50px;
+        margin: 1%;
+        overflow: hidden;
+
+    }
+    .bars{
+
+        width: 100%;
+        height: 100%;
+
+    }
+    #energyBar{
+        
+        display: inline-block;
+        background-color: rgba(0,0,0, 0.25);
+        height: 50%;
+        position: relative;
+        margin-top: 2%;
+    }
+    #energyFill{
+
+        background-color: green;
+        margin: 0%;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        color: rgba(186, 180, 180, 0.8);
+
+    }
+    #healthBar{
+        
+        display: inline-block;
+        background-color: rgba(0,0,0, 0.25);
+        height: 50%;
+        position: relative;
+        margin-top: 2%;
+    }
+    #healthFill{
+
+        background-color: green;
+        margin: 0%;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        color: rgba(186, 180, 180, 0.8);
+
+    }
+
+    /*MIDDLE*/
+    
+    #woods, #woodsPrev, #river, #riverPrev, #fields, #fieldsPrev{
+        box-shadow: inset 2px 2px 0px rgba(144, 55, 22,0.5),
+                    inset 5px 5px 0px rgba(101, 40, 21, 0.5),   
+                    inset -5px -5px 0px rgba(217, 144, 89, 0.5);
+        
+    }
+    #woods, #river, #fields{
+        padding: 5%;
+
+}
+    #woods, #woodsPrev{
+        background-image: url(./resources/woods.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #river, #riverPrev{
+        background-image: url(./resources/river.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #fields, #fieldsPrev{
+        background-image: url(./resources/fields.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #woodsText, #riverText, #fieldsText{
+        opacity: 1;
+        transition: opacity 0.5s ease;
+        text-align: center; 
+        padding-top: 5%;
+        background-color: rgba(50, 0, 0, 0.3);
+        background-blend-mode: screen;
+        height: 100% !important;
+        vertical-align: middle;
+        color: #eca65e;
+    }
+    #woodsPrev:hover #woodsText{
+        opacity: 0;
+    }
+    #riverPrev:hover #riverText{
+        opacity: 0;
+    }
+    #fieldsPrev:hover #fieldsText{
+        opacity: 0;
+    }
+
+    #forageMenu{
+    
+        height: 100%;
+
+    
+    }
+    #forageMenu div{
+        
+        height: 30%;
+        margin-bottom: 1.25%;
+        
+    }
+    .topTransact{
+
+        background-color: #b46f2b;
+        top: 0;
+        margin:2%;
+        border: none;
+
+    }
+
+    #mid{
+
+        display: block;
+        margin: auto;
+        width: 70%;
+        height: 68%;
+
+    }
+    #midLeft{
+
+        display: block;
+        margin: 0.5%;
+        margin-top: 0%;
+        float: left;
+        height: 99%;
+        width: 49%;
+        background-color: #eca65e;
+        padding: 3%;
+        overflow-y: auto;
+        border-color: #dd7e20;
+        border-style: solid;
+        border-width: 6px;
+        box-shadow: inset 2px 2px 0px #903716,
+                    inset 5px 5px 0px #652815, 
+                    inset 8px 8px 0px #b5704f, 
+                    inset -5px -5px 0px #d99059;
+    }
+
+    #plots{
+        margin-left:-12px;
+    }
+
+    .plot {
+        height: 90px;
+        width: 90px;
+        padding-top: 5;
+        background-color: #b46f2b;
+    }
+
+    .plot div {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #midRight{
+
+        display: block;
+        margin: 0.5%;
+        margin-top: 0%;
+        float: right;
+        height: 99%;
+        width: 49%;
+
+    }
+    #midTop{
+
+        display: inline-block;
+        margin-bottom: 0.5%;
+        height: 49%;
+        width: 99%;
+        background-color: #fbc370;
+        padding-top: 0%;
+
+
+    }
+    #homepic{
+        background-image: url("./resources/home.jpg");
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: cover;
+    }
+    #shoppic{
+        background-image: url("./resources/shop.jpg");
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: cover;
+    }
+    #townpic{
+        background-image: url("./resources/town.jpg");
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: cover;
+    }
+    #sellpic{
+        background-image: url("./resources/sell.jpg");
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: cover;
+    }
+    #roosterpic{
+        background-image: url("./resources/rooster.jpg");
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: cover;
+    }
+    #mountainpic{
+        background-image: url("./resources/mountain.jpg");
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: cover;
+    }
+    #dungeonpic{
+        background-image: url("./resources/dungeon.jpg");
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: cover;
+        
+    }
+    #forestpic{
+        background-image: url("./resources/forest.jpg");
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: cover;
+    }
+    #clinicpic{
+        background-image: url("./resources/clinic.jpg");
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: cover;
+    }
+    #guildpic{
+        background-image: url("./resources/guild.jpg");
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: cover;
+    }
+
+    #midBot{
+
+        display: inline-block;
+        margin-top: 0.5%;
+        height: 49%;
+        width: 99%;
+        background-color: #eca65e;
+        padding: 4%;
+        overflow-y: auto;
+        border-style: solid;
+        border-color: #dd7e20;
+        border-width: 6px;
+        box-shadow: inset 2px 2px 0px #903716,
+                    inset 5px 5px 0px #652815, 
+                    inset 8px 8px 0px #b5704f, 
+                    inset -5px -5px 0px #d99059;
+
+    }
+    #inventory{
+
+        padding: 2%;
+
+    }
+
+    /*BOTTOM*/
+
+    #menuBar div{
+
+        padding-left: 2%;
+        
+    }
+    #bot{
+
+        height: 20%;
+        width: 70%;
+        background-color: #eca65e;
+        border-color: #dd7e20;
+        border-style: solid;
+        border-width: 3px;
+        box-shadow: inset 2px 2px 0px #903716,
+                    inset 5px 5px 0px #652815, 
+                    inset 8px 8px 0px #b5704f, 
+                    inset -5px -5px 0px #d99059;
+        margin: auto;
+        overflow-y: auto;
+
+    }
+
+    #gameover {
+        height:100%;
+        padding-top: 1%;
+        text-align: center;
+    }
+    #townActions{
+
+        display: none;
+
+    }
+    #mountainActions{
+
+            display: none;
+
+        }
+
+/*FRANZ*/
+
+#battleInfo{
+    background-color: #eca65e;
+    padding: 5%;
+    border-radius: 20%;
+    width: 75%;
+    margin: 2% auto 0;
+    overflow: hidden;
+}
+#battle{
+    height: 100%;
+    box-shadow: inset 2px 2px 0px rgba(144, 55, 22,0.5),
+                    inset 5px 5px 0px rgba(101, 40, 21, 0.5),   
+                    inset -5px -5px 0px rgba(217, 144, 89, 0.5);
+    background-image: url(./resources/battle.jpg);
+    background-size: cover;
+    background-repeat: space;
+}
+#dungeon{
+    height: 100%;
+}
+#enemyName{
+    text-align: center;
+    margin-top: 2%;
+}
+#enemyLvl{
+    text-align: center;
+}
+.healthBG{
+    background-color: #903716;
+    padding: 2%;
+    margin: 2%;
+}
+.health{
+    background-color: #dd4620;
+    margin: 0;
+}
+.timeBG{
+    background-color: #903716;
+    padding: 2%;
+    margin: 2%;
+}
+.time{
+    background-color: #20d7dd;
+    margin: 0;
+    height: 30%;
+    width: 0;
+}
+#contextActions{
+    text-align: center;
+    margin-bottom: 2%;
+}
+#resources{
+    border-radius: 10px;
+    border: 1px solid black;
+    width: 75%;
+    margin: 2% auto 0;
+    padding: 2%;
+}
+#upgrades{
+    border-radius: 10px;
+    border: 1px solid black;
+    height: inherit;
+    width: 87.5%;
+    margin: 10px auto 0;
+    padding: 2%;
+    overflow-y: auto;
+}
+#upgrades div{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.upgradePanel{
+    display: inline-block;
+    top: 0px;
+    height: inherit;
+    text-align: center;
+}
+#dungeonItems{
+    display: none;
+    padding-left: 2%;
+}
+#dungeonInventory{
+    display: block;
+    width: 100%;
+    padding: 2%;
+}
+
+
+

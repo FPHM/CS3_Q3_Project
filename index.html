@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Homepage</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Press+Start+2P&display=swap" rel="stylesheet">
+        
+    <style>
+        html {
+            background-image: url("https://i.pinimg.com/originals/b8/1a/a4/b81aa44ba47c8ebb93c4525a96904101.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        body {
+            height: 750px;
+        }
+        h1 {
+            font-size: 50px;
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+            margin: 0 10px;
+            color: #D2B55B;
+        }    
+        #welcome {
+            margin: 20px 0;
+        }
+        p {
+            text-align: center;
+            width: 40%;
+            margin: 0 30%;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 35px;
+            font-weight: bold; 
+            color: black;
+        }
+        #gthpage {
+            width: 26%;
+            height: 30px;
+            margin: 1% 37%;
+            border-radius: 6px;
+            background-color: floralwhite;
+            box-shadow: 0 4px darkgray;
+        }
+        #gthpage:hover {
+            background-color: beige;
+        }
+        #gthpage:active {
+            box-shadow: 0 5px darkgray;
+            transform: translateY(4px);
+        }
+        #page {
+            height: 100px;
+            width: 20%;
+            border-radius: 15px;
+            margin: 1% 40%;
+            background-color: orange;
+            box-shadow: 0 10px darkorange;
+        }
+        #page:hover {
+            background-color: darkorange;
+        }
+        #page:active {
+            box-shadow: 0 5px darkorange;
+            transform: translateY(4px);
+        }
+		.second, .last{
+			color: white;
+		}
+    </style>
+        
+        <script>
+		function gamePage() {
+			alert("You will now be redirected to the game. Best of Luck!");
+            open("TheGame.html");
+        }
+        function homePage() {
+            window.location.replace("about.html");
+        }
+		function cheatSheet() {
+			alert("You will now be redirected to the cheat sheet.");
+            open("cheat.html"); 
+        }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h1 id="welcome">Starview Valley</h1>
+			<div class="text">
+				<p>Starview Valley is a game that mimicks an RPG (role-playing game) and contains numerous functions and tasks. 
+				In this game, you have a mission given by your grandfather, wherein you will take care of the farm he has entrusted
+				to you. Of course, you will also need to defend yourself from invaders that can harm your farm. The game will end 
+				once your energy has run out or when you have been defeated by the enemies. Goodluck!!</p>
+			</div>
+			<button id="page" onclick="gamePage()">STARTTTTT!</button>
+            <br><br><br><p class="second">Check out the creators of the game!</p><br>
+            <button id="gthpage" onclick="homePage()">ABOUT THE DEVELOPERS</button>
+			<br><br>
+			<p class="last">Cheat Sheet and Detailed Gameplay:   <button class="btn btn-color1" onclick="cheatSheet()">Cheat Sheet</button></p>
+		</div>
+    </body>
+</html>
